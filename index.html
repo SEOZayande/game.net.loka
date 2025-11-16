@@ -1,0 +1,2227 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>گیم نت لوکا - بهترین مرکز بازی‌های دیجیتال</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="/_sdk/data_sdk.js"></script>
+  <script src="/_sdk/element_sdk.js"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <style>
+        @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap');
+        
+        * {
+            font-family: 'Vazirmatn', sans-serif;
+        }
+        
+        body {
+            box-sizing: border-box;
+            background: linear-gradient(135deg, #000000 0%, #1a1a1a 25%, #0d4f3c 50%, #1a1a1a 75%, #000000 100%);
+            color: white;
+            overflow-x: hidden;
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, #10b981 0%, #059669 25%, #047857 50%, #10b981 75%, #059669 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 8s ease infinite;
+        }
+        
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        .glass-card {
+            background: rgba(16, 185, 129, 0.08);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(16, 185, 129, 0.2);
+            box-shadow: 0 8px 32px rgba(16, 185, 129, 0.15);
+        }
+        
+        .gaming-card {
+            transition: all 0.4s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .gaming-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(16, 185, 129, 0.4);
+        }
+        
+        .gaming-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent, rgba(16, 185, 129, 0.15), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.6s;
+        }
+        
+        .gaming-card:hover::before {
+            transform: translateX(100%);
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #10b981 0%, #059669 50%, #047857 100%);
+            color: white;
+            border: none;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 15px 35px rgba(16, 185, 129, 0.6);
+        }
+        
+        .btn-secondary {
+            background: linear-gradient(135deg, #374151 0%, #1f2937 50%, #111827 100%);
+            color: white;
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            transition: all 0.4s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .btn-secondary:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 15px 35px rgba(16, 185, 129, 0.4);
+            border-color: rgba(16, 185, 129, 0.6);
+        }
+        
+        .btn-danger {
+            background: linear-gradient(135deg, #ef4444 0%, #dc2626 50%, #b91c1c 100%);
+            color: white;
+            border: none;
+            transition: all 0.4s ease;
+            box-shadow: 0 4px 15px rgba(239, 68, 68, 0.3);
+        }
+        
+        .btn-danger:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 15px 35px rgba(239, 68, 68, 0.6);
+        }
+        
+        /* انیمیشن‌های خفن */
+        .floating-animation {
+            animation: floating 6s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            25% { transform: translateY(-20px) rotate(5deg); }
+            50% { transform: translateY(-10px) rotate(-5deg); }
+            75% { transform: translateY(-15px) rotate(3deg); }
+        }
+        
+        .pulse-glow {
+            animation: pulseGlow 3s infinite;
+        }
+        
+        @keyframes pulseGlow {
+            0%, 100% { 
+                box-shadow: 0 0 20px rgba(16, 185, 129, 0.6),
+                           0 0 40px rgba(16, 185, 129, 0.4),
+                           0 0 60px rgba(16, 185, 129, 0.2);
+            }
+            50% { 
+                box-shadow: 0 0 40px rgba(16, 185, 129, 0.9),
+                           0 0 80px rgba(16, 185, 129, 0.6),
+                           0 0 120px rgba(16, 185, 129, 0.3);
+            }
+        }
+        
+        .text-gradient {
+            background: linear-gradient(135deg, #10b981 0%, #34d399 25%, #6ee7b7 50%, #10b981 75%, #34d399 100%);
+            background-size: 400% 400%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradientText 4s ease infinite;
+        }
+        
+        @keyframes gradientText {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        .gaming-icon {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            transition: all 0.4s ease;
+        }
+        
+        .gaming-icon:hover {
+            transform: scale(1.2) rotate(15deg);
+            box-shadow: 0 15px 40px rgba(16, 185, 129, 0.6);
+        }
+        
+        .stats-counter {
+            font-size: 3rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, #10b981 0%, #6ee7b7 50%, #10b981 100%);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradientText 3s ease infinite;
+        }
+        
+        .modal {
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(15px);
+        }
+        
+        .modal-enter {
+            animation: modalEnter 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+        
+        @keyframes modalEnter {
+            0% {
+                opacity: 0;
+                transform: scale(0.3) rotate(-10deg);
+                filter: blur(10px);
+            }
+            50% {
+                opacity: 0.8;
+                transform: scale(1.1) rotate(5deg);
+                filter: blur(5px);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1) rotate(0deg);
+                filter: blur(0px);
+            }
+        }
+        
+        /* ذرات شناور پس‌زمینه */
+        .floating-particles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none;
+        }
+        
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            pointer-events: none;
+        }
+        
+        .particle-1 {
+            width: 20px;
+            height: 20px;
+            background: linear-gradient(45deg, #10b981, #34d399);
+            top: 10%;
+            left: 10%;
+            animation: floatParticle1 12s infinite linear;
+        }
+        
+        .particle-2 {
+            width: 15px;
+            height: 15px;
+            background: linear-gradient(45deg, #059669, #10b981);
+            top: 20%;
+            right: 15%;
+            animation: floatParticle2 15s infinite linear;
+        }
+        
+        .particle-3 {
+            width: 25px;
+            height: 25px;
+            background: linear-gradient(45deg, #047857, #059669);
+            bottom: 20%;
+            left: 20%;
+            animation: floatParticle3 18s infinite linear;
+        }
+        
+        .particle-4 {
+            width: 12px;
+            height: 12px;
+            background: linear-gradient(45deg, #6ee7b7, #34d399);
+            top: 60%;
+            right: 25%;
+            animation: floatParticle4 10s infinite linear;
+        }
+        
+        .particle-5 {
+            width: 18px;
+            height: 18px;
+            background: linear-gradient(45deg, #10b981, #ffffff);
+            bottom: 40%;
+            right: 10%;
+            animation: floatParticle5 14s infinite linear;
+        }
+        
+        .particle-6 {
+            width: 22px;
+            height: 22px;
+            background: linear-gradient(45deg, #34d399, #10b981);
+            top: 40%;
+            left: 5%;
+            animation: floatParticle6 16s infinite linear;
+        }
+        
+        @keyframes floatParticle1 {
+            0% { transform: translateY(0px) translateX(0px) rotate(0deg); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100vh) translateX(50px) rotate(360deg); opacity: 0; }
+        }
+        
+        @keyframes floatParticle2 {
+            0% { transform: translateY(0px) translateX(0px) rotate(0deg); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100vh) translateX(-30px) rotate(-360deg); opacity: 0; }
+        }
+        
+        @keyframes floatParticle3 {
+            0% { transform: translateY(0px) translateX(0px) rotate(0deg); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100vh) translateX(80px) rotate(360deg); opacity: 0; }
+        }
+        
+        @keyframes floatParticle4 {
+            0% { transform: translateY(0px) translateX(0px) rotate(0deg); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100vh) translateX(-60px) rotate(-360deg); opacity: 0; }
+        }
+        
+        @keyframes floatParticle5 {
+            0% { transform: translateY(0px) translateX(0px) rotate(0deg); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100vh) translateX(40px) rotate(360deg); opacity: 0; }
+        }
+        
+        @keyframes floatParticle6 {
+            0% { transform: translateY(0px) translateX(0px) rotate(0deg); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100vh) translateX(-70px) rotate(-360deg); opacity: 0; }
+        }
+        
+        /* حلقه‌های پالسی */
+        .pulse-ring {
+            position: absolute;
+            border: 2px solid rgba(16, 185, 129, 0.3);
+            border-radius: 50%;
+            animation: pulseRing 4s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite;
+        }
+        
+        .pulse-ring-1 {
+            width: 200px;
+            height: 200px;
+            top: 10%;
+            right: 10%;
+            animation-delay: 0s;
+        }
+        
+        .pulse-ring-2 {
+            width: 150px;
+            height: 150px;
+            bottom: 20%;
+            left: 15%;
+            animation-delay: 1.5s;
+        }
+        
+        .pulse-ring-3 {
+            width: 100px;
+            height: 100px;
+            top: 50%;
+            left: 50%;
+            animation-delay: 3s;
+        }
+        
+        @keyframes pulseRing {
+            0% {
+                transform: scale(0.1);
+                opacity: 1;
+            }
+            80%, 100% {
+                transform: scale(1.2);
+                opacity: 0;
+            }
+        }
+        
+        /* کره‌های گرادیانت */
+        .gradient-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(40px);
+            pointer-events: none;
+            animation: orbFloat 20s infinite linear;
+        }
+        
+        .orb-1 {
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(16, 185, 129, 0.4) 0%, transparent 70%);
+            top: -150px;
+            right: -150px;
+        }
+        
+        .orb-2 {
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(52, 211, 153, 0.3) 0%, transparent 70%);
+            bottom: -100px;
+            left: -100px;
+            animation-delay: -10s;
+        }
+        
+        .orb-3 {
+            width: 250px;
+            height: 250px;
+            background: radial-gradient(circle, rgba(110, 231, 183, 0.3) 0%, transparent 70%);
+            top: 50%;
+            left: 50%;
+            animation-delay: -5s;
+        }
+        
+        @keyframes orbFloat {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            25% { transform: translate(50px, -50px) rotate(90deg); }
+            50% { transform: translate(-30px, -80px) rotate(180deg); }
+            75% { transform: translate(-60px, 30px) rotate(270deg); }
+        }
+        
+        /* آیکون کنترلر با انیمیشن خفن */
+        .controller-icon {
+            animation: controllerBounce 2s ease-in-out infinite;
+        }
+        
+        @keyframes controllerBounce {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            25% { transform: translateY(-10px) rotate(5deg); }
+            50% { transform: translateY(-20px) rotate(0deg); }
+            75% { transform: translateY(-10px) rotate(-5deg); }
+        }
+        
+        /* متن خوش‌آمدگویی با افکت خاص */
+        .welcome-text {
+            background: linear-gradient(45deg, #10b981, #34d399, #6ee7b7, #ffffff, #10b981);
+            background-size: 400% 400%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: rainbowText 3s ease infinite;
+        }
+        
+        @keyframes rainbowText {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        /* دکمه‌های خفن با افکت‌های ویژه */
+        .epic-button {
+            position: relative;
+            overflow: hidden;
+            transform-style: preserve-3d;
+            transition: all 0.4s ease;
+        }
+        
+        .epic-button:hover {
+            transform: translateY(-5px) rotateX(10deg);
+        }
+        
+        .epic-button::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+            transform: translateX(-100%) skewX(-15deg);
+            transition: transform 0.6s;
+        }
+        
+        .epic-button:hover::after {
+            transform: translateX(100%) skewX(-15deg);
+        }
+        
+        /* فیلدهای فرم با استایل خفن */
+        .epic-input {
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid rgba(16, 185, 129, 0.3);
+            transition: all 0.4s ease;
+            position: relative;
+        }
+        
+        .epic-input:focus {
+            border-color: #10b981;
+            box-shadow: 0 0 20px rgba(16, 185, 129, 0.4);
+            transform: scale(1.02);
+        }
+        
+        /* شمارنده آمار با انیمیشن */
+        .stat-number {
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+        
+        .stat-number:hover {
+            transform: scale(1.1) rotate(5deg);
+        }
+        
+        /* افکت‌های اضافی */
+        .glow-text {
+            text-shadow: 0 0 10px rgba(16, 185, 129, 0.5),
+                         0 0 20px rgba(16, 185, 129, 0.3),
+                         0 0 30px rgba(16, 185, 129, 0.1);
+        }
+        
+        .device-card {
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(16, 185, 129, 0.05) 100%);
+            border: 1px solid rgba(16, 185, 129, 0.2);
+            transition: all 0.4s ease;
+        }
+        
+        .device-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(16, 185, 129, 0.3);
+            border-color: rgba(16, 185, 129, 0.5);
+        }
+        
+        .device-available {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+        }
+        
+        .device-occupied {
+            background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+        }
+        
+        .device-reserved {
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+        }
+        
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            animation: slideInRight 0.5s ease-out;
+        }
+        
+        @keyframes slideInRight {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        
+        .loading-spinner {
+            border: 3px solid rgba(16, 185, 129, 0.3);
+            border-top: 3px solid #10b981;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .dashboard-tab {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .dashboard-tab.active {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            border-color: transparent;
+        }
+        
+        .dashboard-tab:hover {
+            background: rgba(16, 185, 129, 0.3);
+        }
+        
+        .reservation-status {
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-weight: bold;
+            font-size: 0.875rem;
+        }
+        
+        .status-pending {
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+            color: white;
+        }
+        
+        .status-confirmed {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+        }
+        
+        .status-cancelled {
+            background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+            color: white;
+        }
+        
+        .status-completed {
+            background: linear-gradient(135deg, #6b7280 0%, #4b5563 100%);
+            color: white;
+        }
+        
+        .time-slot {
+            background: rgba(16, 185, 129, 0.1);
+            border: 2px solid rgba(16, 185, 129, 0.3);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .time-slot:hover {
+            background: rgba(16, 185, 129, 0.2);
+            border-color: rgba(16, 185, 129, 0.5);
+            transform: scale(1.05);
+        }
+        
+        .time-slot.selected {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            border-color: #10b981;
+            color: white;
+        }
+        
+        .time-slot.unavailable {
+            background: rgba(239, 68, 68, 0.1);
+            border-color: rgba(239, 68, 68, 0.3);
+            color: #ef4444;
+            cursor: not-allowed;
+        }
+        
+        .time-slot.unavailable:hover {
+            transform: none;
+        }
+        
+        .welcome-animation {
+            animation: welcomeSlide 0.8s ease-out;
+        }
+        
+        @keyframes welcomeSlide {
+            from {
+                opacity: 0;
+                transform: translateY(-50px) scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+        
+        .gaming-bg {
+            background-image: 
+                radial-gradient(circle at 20% 80%, rgba(16, 185, 129, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(52, 211, 153, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(110, 231, 183, 0.05) 0%, transparent 50%);
+        }
+    </style>
+  <style>@view-transition { navigation: auto; }</style>
+ </head>
+ <body class="gaming-bg"><!-- Header -->
+  <header class="glass-card sticky top-0 z-50">
+   <div class="container mx-auto px-6 py-4">
+    <div class="flex justify-between items-center">
+     <div class="flex items-center space-x-4 space-x-reverse">
+      <div class="w-16 h-16 hero-gradient rounded-full flex items-center justify-center pulse-glow"><i class="fas fa-gamepad text-white text-2xl controller-icon"></i>
+      </div>
+      <div>
+       <h1 class="text-2xl font-bold text-gradient">گیم نت لوکا</h1>
+       <p class="text-sm text-gray-300">بهترین مرکز بازی‌های دیجیتال</p>
+      </div>
+     </div>
+     <nav class="hidden md:flex space-x-8 space-x-reverse"><button onclick="showSection('home')" class="nav-btn text-white hover:text-green-400 font-medium transition-colors">خانه</button> <button onclick="showSection('devices')" class="nav-btn text-white hover:text-green-400 font-medium transition-colors">دستگاه‌ها</button> <button onclick="showSection('reservation')" class="nav-btn text-white hover:text-green-400 font-medium transition-colors">رزرو</button> <button onclick="showSection('activities')" class="nav-btn text-white hover:text-green-400 font-medium transition-colors">تفریحات</button> <button onclick="showSection('contact')" class="nav-btn text-white hover:text-green-400 font-medium transition-colors">تماس</button> <button id="dashboardBtn" onclick="showSection('dashboard')" class="nav-btn text-white hover:text-green-400 font-medium transition-colors hidden"> <i class="fas fa-tachometer-alt mr-2"></i>داشبورد </button>
+     </nav>
+     <div class="flex items-center space-x-4 space-x-reverse">
+      <div id="userInfo" class="hidden flex items-center space-x-3 space-x-reverse">
+       <div class="text-right">
+        <p class="text-white font-bold" id="userName">مدیر</p>
+        <p class="text-xs text-gray-400" id="userRole">مدیر سیستم</p>
+       </div><button onclick="logout()" class="text-red-400 hover:text-red-300 p-2"> <i class="fas fa-sign-out-alt"></i> </button>
+      </div><button id="loginBtn" onclick="showLoginModal()" class="epic-button btn-primary px-6 py-3 rounded-full font-bold"> <i class="fas fa-user mr-2"></i>ورود مدیر </button> <button onclick="showSection('reservation')" class="epic-button btn-secondary px-6 py-3 rounded-full font-bold"> <i class="fas fa-calendar-plus mr-2"></i>رزرو سریع </button>
+     </div>
+    </div>
+   </div>
+  </header><!-- Home Section -->
+  <section id="homeSection" class="section"><!-- Hero Section -->
+   <div class="hero-gradient min-h-screen flex items-center justify-center relative overflow-hidden">
+    <div class="floating-particles">
+     <div class="particle particle-1"></div>
+     <div class="particle particle-2"></div>
+     <div class="particle particle-3"></div>
+     <div class="particle particle-4"></div>
+     <div class="particle particle-5"></div>
+     <div class="particle particle-6"></div>
+    </div>
+    <div class="absolute inset-0 opacity-20">
+     <div class="absolute top-20 left-20 w-32 h-32 bg-white rounded-full floating-animation"></div>
+     <div class="absolute bottom-20 right-20 w-24 h-24 bg-white rounded-full floating-animation" style="animation-delay: -2s;"></div>
+     <div class="absolute top-1/2 left-1/4 w-16 h-16 bg-white rounded-full floating-animation" style="animation-delay: -4s;"></div>
+    </div>
+    <div class="container mx-auto px-6 text-center relative z-10">
+     <h1 class="text-6xl md:text-8xl font-black mb-6 leading-tight glow-text">گیم نت <span class="welcome-text">لوکا</span><br>
+       دنیای <span class="welcome-text">گیمینگ</span></h1>
+     <p class="text-xl md:text-2xl mb-8 text-gray-200 max-w-3xl mx-auto">بهترین تجربه بازی با جدیدترین دستگاه‌ها و امکانات فوق‌العاده! PS5، PS4، PC Gaming و بیلیارد در یک مکان</p>
+     <div class="flex flex-col md:flex-row gap-6 justify-center items-center mb-12"><button onclick="showSection('reservation')" class="epic-button btn-primary px-10 py-4 rounded-full text-xl font-bold"> <i class="fas fa-calendar-plus mr-3"></i>رزرو کن الان! </button> <button onclick="showSection('devices')" class="epic-button btn-secondary px-10 py-4 rounded-full text-xl font-bold"> <i class="fas fa-gamepad mr-3"></i>مشاهده دستگاه‌ها </button>
+     </div><!-- Stats -->
+     <div class="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
+      <div class="text-center">
+       <div class="stats-counter stat-number">
+        5
+       </div>
+       <p class="text-gray-300">سیستم PC</p>
+      </div>
+      <div class="text-center">
+       <div class="stats-counter stat-number">
+        3
+       </div>
+       <p class="text-gray-300">دستگاه PS5</p>
+      </div>
+      <div class="text-center">
+       <div class="stats-counter stat-number">
+        2
+       </div>
+       <p class="text-gray-300">دستگاه PS4</p>
+      </div>
+      <div class="text-center">
+       <div class="stats-counter stat-number">
+        2
+       </div>
+       <p class="text-gray-300">میز بیلیارد</p>
+      </div>
+     </div>
+    </div>
+   </div><!-- Features Section -->
+   <section class="py-20 bg-gradient-to-b from-transparent to-gray-900">
+    <div class="container mx-auto px-6">
+     <div class="text-center mb-16">
+      <h2 class="text-5xl font-bold mb-6 text-gradient">چرا گیم نت لوکا؟</h2>
+      <p class="text-xl text-gray-300 max-w-3xl mx-auto">با بهترین امکانات و جدیدترین دستگاه‌ها، تجربه‌ای فراموش‌نشدنی داشته باش</p>
+     </div>
+     <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+      <div class="text-center group">
+       <div class="gaming-icon"><i class="fas fa-rocket text-3xl text-white"></i>
+       </div>
+       <h3 class="text-2xl font-bold mb-4">سرعت فوق‌العاده</h3>
+       <p class="text-gray-300">اینترنت پرسرعت و سیستم‌های قدرتمند برای بهترین تجربه</p>
+      </div>
+      <div class="text-center group">
+       <div class="gaming-icon"><i class="fas fa-gamepad text-3xl text-white"></i>
+       </div>
+       <h3 class="text-2xl font-bold mb-4">جدیدترین بازی‌ها</h3>
+       <p class="text-gray-300">دسترسی به آخرین بازی‌های روز دنیا</p>
+      </div>
+      <div class="text-center group">
+       <div class="gaming-icon"><i class="fas fa-users text-3xl text-white"></i>
+       </div>
+       <h3 class="text-2xl font-bold mb-4">بازی گروهی</h3>
+       <p class="text-gray-300">امکان بازی با دوستان در محیطی دوستانه</p>
+      </div>
+      <div class="text-center group">
+       <div class="gaming-icon"><i class="fas fa-clock text-3xl text-white"></i>
+       </div>
+       <h3 class="text-2xl font-bold mb-4">24 ساعته</h3>
+       <p class="text-gray-300">باز در تمام ساعات شبانه‌روز</p>
+      </div>
+      <div class="text-center group">
+       <div class="gaming-icon"><i class="fas fa-coffee text-3xl text-white"></i>
+       </div>
+       <h3 class="text-2xl font-bold mb-4">بوفه و نوشیدنی</h3>
+       <p class="text-gray-300">انواع نوشیدنی و تنقلات</p>
+      </div>
+      <div class="text-center group">
+       <div class="gaming-icon"><i class="fas fa-shield-alt text-3xl text-white"></i>
+       </div>
+       <h3 class="text-2xl font-bold mb-4">محیط امن</h3>
+       <p class="text-gray-300">محیطی امن و تمیز برای همه</p>
+      </div>
+     </div>
+    </div>
+   </section>
+  </section><!-- Devices Section -->
+  <section id="devicesSection" class="section hidden py-20">
+   <div class="container mx-auto px-6">
+    <div class="text-center mb-16">
+     <h2 class="text-5xl font-bold mb-6 text-gradient">دستگاه‌های ما</h2>
+     <p class="text-xl text-gray-300 max-w-3xl mx-auto mb-8">مجموعه‌ای از بهترین و جدیدترین دستگاه‌های گیمینگ</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="devicesGrid"><!-- Devices will be loaded here -->
+    </div>
+   </div>
+  </section><!-- Activities Section -->
+  <section id="activitiesSection" class="section hidden py-20 bg-gradient-to-b from-gray-900 to-black">
+   <div class="container mx-auto px-6">
+    <div class="text-center mb-16">
+     <h2 class="text-5xl font-bold mb-6 text-gradient">تفریحات موجود</h2>
+     <p class="text-xl text-gray-300 max-w-3xl mx-auto">انواع بازی‌ها و تفریحات برای همه سلیقه‌ها</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+     <div class="glass-card p-8 rounded-2xl text-center gaming-card">
+      <div class="gaming-icon mb-6"><i class="fas fa-trophy text-3xl text-white"></i>
+      </div>
+      <h3 class="text-2xl font-bold mb-4">بازی‌های اکشن</h3>
+      <p class="text-gray-300 mb-6">Call of Duty، Fortnite، Apex Legends و...</p>
+      <ul class="text-sm text-gray-400 space-y-2">
+       <li>• بازی‌های تک‌نفره و چندنفره</li>
+       <li>• مسابقات آنلاین</li>
+       <li>• تورنمنت‌های هفتگی</li>
+      </ul>
+     </div>
+     <div class="glass-card p-8 rounded-2xl text-center gaming-card">
+      <div class="gaming-icon mb-6"><i class="fas fa-car text-3xl text-white"></i>
+      </div>
+      <h3 class="text-2xl font-bold mb-4">بازی‌های مسابقه‌ای</h3>
+      <p class="text-gray-300 mb-6">FIFA، Gran Turismo، F1 و...</p>
+      <ul class="text-sm text-gray-400 space-y-2">
+       <li>• مسابقات فوتبال</li>
+       <li>• مسابقات اتومبیل‌رانی</li>
+       <li>• بازی با دوستان</li>
+      </ul>
+     </div>
+     <div class="glass-card p-8 rounded-2xl text-center gaming-card">
+      <div class="gaming-icon mb-6"><i class="fas fa-dragon text-3xl text-white"></i>
+      </div>
+      <h3 class="text-2xl font-bold mb-4">بازی‌های نقش‌آفرینی</h3>
+      <p class="text-gray-300 mb-6">Elden Ring، Cyberpunk، Witcher و...</p>
+      <ul class="text-sm text-gray-400 space-y-2">
+       <li>• داستان‌های جذاب</li>
+       <li>• گرافیک فوق‌العاده</li>
+       <li>• تجربه سینمایی</li>
+      </ul>
+     </div>
+     <div class="glass-card p-8 rounded-2xl text-center gaming-car">
+      <div class="gaming-icon mb-6"><i class="fas fa-puzzle-piece text-3xl text-white"></i>
+      </div>
+      <h3 class="text-2xl font-bold mb-4">بازی‌های فکری</h3>
+      <p class="text-gray-300 mb-6">شطرنج، پازل، استراتژی و...</p>
+      <ul class="text-sm text-gray-400 space-y-2">
+       <li>• تقویت قدرت تفکر</li>
+       <li>• بازی‌های آموزشی</li>
+       <li>• مناسب همه سنین</li>
+      </ul>
+     </div>
+     <div class="glass-card p-8 rounded-2xl text-center gaming-card">
+      <div class="gaming-icon mb-6"><i class="fas fa-table-tennis text-3xl text-white"></i>
+      </div>
+      <h3 class="text-2xl font-bold mb-4">بیلیارد</h3>
+      <p class="text-gray-300 mb-6">2 میز حرفه‌ای بیلیارد</p>
+      <ul class="text-sm text-gray-400 space-y-2">
+       <li>• میزهای استاندارد</li>
+       <li>• چوب‌های حرفه‌ای</li>
+       <li>• مسابقات دوستانه</li>
+      </ul>
+     </div>
+     <div class="glass-card p-8 rounded-2xl text-center gaming-card">
+      <div class="gaming-icon mb-6"><i class="fas fa-users-cog text-3xl text-white"></i>
+      </div>
+      <h3 class="text-2xl font-bold mb-4">بازی گروهی</h3>
+      <p class="text-gray-300 mb-6">بازی با دوستان و خانواده</p>
+      <ul class="text-sm text-gray-400 space-y-2">
+       <li>• تا 10 نفر همزمان</li>
+       <li>• بازی‌های تیمی</li>
+       <li>• جشن تولد و مهمانی</li>
+      </ul>
+     </div>
+    </div>
+   </div>
+  </section><!-- Reservation Section -->
+  <section id="reservationSection" class="section hidden py-20">
+   <div class="container mx-auto px-6 max-w-4xl">
+    <div class="text-center mb-12">
+     <h2 class="text-5xl font-bold mb-6 text-gradient">رزرو دستگاه</h2>
+     <p class="text-xl text-gray-300">دستگاه مورد نظرت رو رزرو کن و بیا لذت ببر!</p>
+    </div>
+    <div class="glass-card p-8 rounded-2xl">
+     <form onsubmit="submitReservation(event)" class="space-y-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+       <div><label class="block text-gray-300 mb-3 font-bold"> <i class="fas fa-user text-green-400 mr-2"></i>نام و نام خانوادگی </label> <input type="text" id="customerName" required class="epic-input w-full px-4 py-3 rounded-lg focus:outline-none text-white">
+       </div>
+       <div><label class="block text-gray-300 mb-3 font-bold"> <i class="fas fa-phone text-blue-400 mr-2"></i>شماره تماس </label> <input type="tel" id="customerPhone" required class="epic-input w-full px-4 py-3 rounded-lg focus:outline-none text-white">
+       </div>
+      </div>
+      <div><label class="block text-gray-300 mb-3 font-bold"> <i class="fas fa-gamepad text-purple-400 mr-2"></i>نوع دستگاه </label> <select id="deviceType" onchange="updateAvailableDevices()" required class="epic-input w-full px-4 py-3 rounded-lg focus:outline-none text-white"> <option value="">انتخاب کنید</option> <option value="pc">سیستم PC</option> <option value="ps5">PlayStation 5</option> <option value="ps4">PlayStation 4</option> <option value="billiard">میز بیلیارد</option> </select>
+      </div>
+      <div><label class="block text-gray-300 mb-3 font-bold"> <i class="fas fa-desktop text-yellow-400 mr-2"></i>انتخاب دستگاه </label> <select id="deviceId" required class="epic-input w-full px-4 py-3 rounded-lg focus:outline-none text-white"> <option value="">ابتدا نوع دستگاه را انتخاب کنید</option> </select>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+       <div><label class="block text-gray-300 mb-3 font-bold"> <i class="fas fa-calendar text-pink-400 mr-2"></i>تاریخ </label> <input type="date" id="reservationDate" onchange="updateTimeSlots()" required class="epic-input w-full px-4 py-3 rounded-lg focus:outline-none text-white">
+       </div>
+       <div><label class="block text-gray-300 mb-3 font-bold"> <i class="fas fa-clock text-orange-400 mr-2"></i>مدت زمان (ساعت) </label> <select id="duration" onchange="updateTimeSlots()" required class="epic-input w-full px-4 py-3 rounded-lg focus:outline-none text-white"> <option value="1">1 ساعت</option> </select>
+       </div>
+      </div>
+      <div><label class="block text-gray-300 mb-3 font-bold"> <i class="fas fa-clock text-cyan-400 mr-2"></i>انتخاب زمان شروع </label>
+       <div id="timeSlots" class="grid grid-cols-3 md:grid-cols-6 gap-3">
+        <p class="text-gray-400 col-span-full text-center">ابتدا تاریخ و مدت زمان را انتخاب کنید</p>
+       </div>
+      </div>
+      <div><label class="block text-gray-300 mb-3 font-bold"> <i class="fas fa-comment text-indigo-400 mr-2"></i>توضیحات اضافی (اختیاری) </label> <textarea id="reservationNotes" rows="3" class="epic-input w-full px-4 py-3 rounded-lg focus:outline-none text-white" placeholder="هر توضیح اضافی که دارید..."></textarea>
+      </div>
+      <div class="bg-gradient-to-r from-green-900/30 to-blue-900/30 p-6 rounded-lg border border-green-500/20">
+       <h4 class="font-bold text-white mb-3 flex items-center"><i class="fas fa-info-circle text-green-400 mr-2"></i> اطلاعات مهم</h4>
+       <ul class="text-sm text-gray-300 space-y-2">
+        <li>• رزرو شما پس از تأیید نهایی می‌شود</li>
+        <li>• لطفاً 15 دقیقه زودتر حضور داشته باشید</li>
+        <li>• امکان لغو رزرو تا 2 ساعت قبل از شروع</li>
+        <li>• هزینه بر اساس نوع دستگاه و مدت زمان محاسبه می‌شود</li>
+       </ul>
+       <div class="mt-4 pt-4 border-t border-green-500/20">
+        <p class="text-sm text-yellow-300 flex items-center"><i class="fas fa-phone text-yellow-400 mr-2"></i> جهت لغو رزرو و بازگشت پول: <span class="font-bold mr-2" id="cancelPhoneNumber">021-12345678</span></p>
+       </div>
+      </div>
+      <div class="w-full"><button type="button" onclick="proceedToPayment()" class="w-full epic-button btn-primary py-4 rounded-lg text-xl font-bold pulse-glow"> <i class="fas fa-credit-card mr-3"></i>رزرو و پرداخت </button>
+      </div>
+     </form>
+    </div>
+   </div>
+  </section><!-- Contact Section -->
+  <section id="contactSection" class="section hidden py-20 bg-gradient-to-b from-black to-gray-900">
+   <div class="container mx-auto px-6">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+     <div>
+      <h2 class="text-5xl font-bold mb-6 text-gradient">بیا باهامون در ارتباط باش!</h2>
+      <p class="text-xl text-gray-300 mb-8">سوال داری؟ می‌خوای رزرو کنی؟ همین الان تماس بگیر!</p>
+      <div class="space-y-6">
+       <div class="flex items-center space-x-4 space-x-reverse">
+        <div class="w-12 h-12 hero-gradient rounded-full flex items-center justify-center"><i class="fas fa-phone text-white"></i>
+        </div>
+        <div>
+         <h3 class="font-bold text-lg">تلفن تماس</h3>
+         <p class="text-gray-300">021-12345678</p>
+        </div>
+       </div>
+       <div class="flex items-center space-x-4 space-x-reverse">
+        <div class="w-12 h-12 hero-gradient rounded-full flex items-center justify-center"><i class="fas fa-map-marker-alt text-white"></i>
+        </div>
+        <div>
+         <h3 class="font-bold text-lg">آدرس</h3>
+         <p class="text-gray-300">تهران، خیابان ولیعصر، پلاک 123</p>
+        </div>
+       </div>
+       <div class="flex items-center space-x-4 space-x-reverse">
+        <div class="w-12 h-12 hero-gradient rounded-full flex items-center justify-center"><i class="fas fa-clock text-white"></i>
+        </div>
+        <div>
+         <h3 class="font-bold text-lg">ساعات کاری</h3>
+         <p class="text-gray-300">24 ساعته - همه روزهای هفته</p>
+        </div>
+       </div>
+      </div>
+      <div class="mt-8">
+       <h3 class="font-bold text-lg mb-4">شبکه‌های اجتماعی</h3>
+       <div class="flex space-x-4 space-x-reverse"><a href="#" class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center hover:scale-110 transition-transform"> <i class="fab fa-telegram text-white"></i> </a> <a href="#" class="w-12 h-12 bg-pink-600 rounded-full flex items-center justify-center hover:scale-110 transition-transform"> <i class="fab fa-instagram text-white"></i> </a> <a href="#" class="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center hover:scale-110 transition-transform"> <i class="fab fa-whatsapp text-white"></i> </a>
+       </div>
+      </div>
+     </div>
+     <div class="glass-card p-8 rounded-2xl">
+      <h3 class="text-2xl font-bold mb-6">پیام بفرست</h3>
+      <form onsubmit="submitContactForm(event)" class="space-y-6">
+       <div><label class="block text-gray-300 mb-2">نام و نام خانوادگی</label> <input type="text" required class="epic-input w-full px-4 py-3 rounded-lg focus:outline-none text-white">
+       </div>
+       <div><label class="block text-gray-300 mb-2">شماره تماس</label> <input type="tel" required class="epic-input w-full px-4 py-3 rounded-lg focus:outline-none text-white">
+       </div>
+       <div><label class="block text-gray-300 mb-2">موضوع</label> <select class="epic-input w-full px-4 py-3 rounded-lg focus:outline-none text-white"> <option>سوال عمومی</option> <option>رزرو دستگاه</option> <option>شکایت</option> <option>پیشنهاد</option> <option>سایر</option> </select>
+       </div>
+       <div><label class="block text-gray-300 mb-2">پیام شما</label> <textarea rows="4" class="epic-input w-full px-4 py-3 rounded-lg focus:outline-none text-white" placeholder="پیام خود را بنویسید..."></textarea>
+       </div><button type="submit" class="w-full epic-button btn-primary py-4 rounded-lg text-lg font-bold"> <i class="fas fa-paper-plane mr-2"></i>ارسال پیام </button>
+      </form>
+     </div>
+    </div>
+   </div>
+  </section><!-- Dashboard Section -->
+  <section id="dashboardSection" class="section hidden py-20">
+   <div class="container mx-auto px-6">
+    <div class="text-center mb-12">
+     <h2 class="text-5xl font-bold mb-6 text-gradient">پنل مدیریت</h2>
+     <p class="text-xl text-gray-300">مدیریت کامل گیم نت و رزروها</p>
+    </div><!-- Dashboard Stats -->
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-12">
+     <div class="glass-card p-6 rounded-2xl text-center">
+      <div class="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4"><i class="fas fa-calendar-check text-white text-2xl"></i>
+      </div>
+      <h3 class="text-2xl font-bold text-white" id="totalReservations">0</h3>
+      <p class="text-gray-400">کل رزروها</p>
+     </div>
+     <div class="glass-card p-6 rounded-2xl text-center">
+      <div class="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-4"><i class="fas fa-gamepad text-white text-2xl"></i>
+      </div>
+      <h3 class="text-2xl font-bold text-white" id="activeDevices">0</h3>
+      <p class="text-gray-400">دستگاه‌های فعال</p>
+     </div>
+     <div class="glass-card p-6 rounded-2xl text-center">
+      <div class="w-16 h-16 bg-yellow-500 rounded-full flex items-center justify-center mx-auto mb-4"><i class="fas fa-clock text-white text-2xl"></i>
+      </div>
+      <h3 class="text-2xl font-bold text-white" id="todayReservations">0</h3>
+      <p class="text-gray-400">رزروهای امروز</p>
+     </div>
+     <div class="glass-card p-6 rounded-2xl text-center">
+      <div class="w-16 h-16 bg-purple-500 rounded-full flex items-center justify-center mx-auto mb-4"><i class="fas fa-dollar-sign text-white text-2xl"></i>
+      </div>
+      <h3 class="text-2xl font-bold text-white" id="todayRevenue">0</h3>
+      <p class="text-gray-400">درآمد امروز</p>
+     </div>
+    </div><!-- Dashboard Tabs -->
+    <div class="mb-8">
+     <div class="flex flex-wrap gap-4 justify-center"><button onclick="showDashboardTab('reservations')" class="dashboard-tab active px-6 py-3 rounded-lg font-bold"> <i class="fas fa-calendar-alt mr-2"></i>مدیریت رزروها </button> <button onclick="showDashboardTab('devices')" class="dashboard-tab px-6 py-3 rounded-lg font-bold"> <i class="fas fa-desktop mr-2"></i>مدیریت دستگاه‌ها </button> <button onclick="showDashboardTab('messages')" class="dashboard-tab px-6 py-3 rounded-lg font-bold"> <i class="fas fa-envelope mr-2"></i>پیام‌ها </button> <button onclick="showDashboardTab('settings')" class="dashboard-tab px-6 py-3 rounded-lg font-bold"> <i class="fas fa-cog mr-2"></i>تنظیمات </button> <button onclick="showDashboardTab('payment')" class="dashboard-tab px-6 py-3 rounded-lg font-bold"> <i class="fas fa-credit-card mr-2"></i>درگاه پرداخت </button>
+     </div>
+    </div><!-- Reservations Management Tab -->
+    <div id="reservationsTab" class="dashboard-content">
+     <div class="glass-card p-8 rounded-2xl">
+      <div class="flex justify-between items-center mb-6">
+       <h3 class="text-2xl font-bold text-white">مدیریت رزروها</h3>
+       <div class="flex gap-3"><button onclick="refreshReservations()" class="epic-button btn-secondary px-6 py-3 rounded-lg font-bold"> <i class="fas fa-sync mr-2"></i>به‌روزرسانی </button>
+       </div>
+      </div>
+      <div class="overflow-x-auto">
+       <table class="w-full text-white">
+        <thead>
+         <tr class="border-b border-gray-600">
+          <th class="text-right py-3">شماره</th>
+          <th class="text-right py-3">نام مشتری</th>
+          <th class="text-right py-3">تلفن</th>
+          <th class="text-right py-3">دستگاه</th>
+          <th class="text-right py-3">تاریخ</th>
+          <th class="text-right py-3">زمان</th>
+          <th class="text-right py-3">مدت</th>
+          <th class="text-right py-3">وضعیت</th>
+          <th class="text-right py-3">عملیات</th>
+         </tr>
+        </thead>
+        <tbody id="reservationsTableBody"><!-- Reservations will be loaded here -->
+        </tbody>
+       </table>
+      </div>
+     </div>
+    </div><!-- Devices Management Tab -->
+    <div id="devicesTab" class="dashboard-content hidden">
+     <div class="glass-card p-8 rounded-2xl">
+      <div class="flex justify-between items-center mb-6">
+       <h3 class="text-2xl font-bold text-white">مدیریت دستگاه‌ها</h3>
+       <div class="flex gap-3"><button onclick="addNewDevice()" class="epic-button btn-primary px-6 py-3 rounded-lg font-bold"> <i class="fas fa-plus mr-2"></i>افزودن دستگاه </button>
+       </div>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="devicesManagementGrid"><!-- Devices management will be loaded here -->
+      </div>
+     </div>
+    </div><!-- Messages Tab -->
+    <div id="messagesTab" class="dashboard-content hidden">
+     <div class="glass-card p-8 rounded-2xl">
+      <h3 class="text-2xl font-bold text-white mb-6">پیام‌های دریافتی</h3>
+      <div class="space-y-4" id="messagesList"><!-- Messages will be loaded here -->
+      </div>
+     </div>
+    </div><!-- Payment Gateway Tab -->
+    <div id="paymentTab" class="dashboard-content hidden">
+     <div class="glass-card p-8 rounded-2xl">
+      <h3 class="text-2xl font-bold text-white mb-6">تنظیمات درگاه پرداخت</h3>
+      <form onsubmit="savePaymentGateways(event)" class="space-y-6">
+       <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div class="space-y-6">
+         <h4 class="text-lg font-bold text-green-400 mb-4"><i class="fas fa-desktop mr-2"></i>درگاه پرداخت سیستم PC</h4>
+         <div><label class="block text-gray-300 mb-2">لینک درگاه پرداخت PC</label> <input type="url" id="pcPaymentGateway" class="epic-input w-full px-4 py-3 rounded-lg focus:outline-none text-white" placeholder="https://gateway.example.com/pc">
+         </div>
+         <h4 class="text-lg font-bold text-blue-400 mb-4 mt-8"><i class="fab fa-playstation mr-2"></i>درگاه پرداخت PlayStation 5</h4>
+         <div><label class="block text-gray-300 mb-2">لینک درگاه پرداخت PS5</label> <input type="url" id="ps5PaymentGateway" class="epic-input w-full px-4 py-3 rounded-lg focus:outline-none text-white" placeholder="https://gateway.example.com/ps5">
+         </div>
+        </div>
+        <div class="space-y-6">
+         <h4 class="text-lg font-bold text-purple-400 mb-4"><i class="fab fa-playstation mr-2"></i>درگاه پرداخت PlayStation 4</h4>
+         <div><label class="block text-gray-300 mb-2">لینک درگاه پرداخت PS4</label> <input type="url" id="ps4PaymentGateway" class="epic-input w-full px-4 py-3 rounded-lg focus:outline-none text-white" placeholder="https://gateway.example.com/ps4">
+         </div>
+         <h4 class="text-lg font-bold text-yellow-400 mb-4 mt-8"><i class="fas fa-table-tennis mr-2"></i>درگاه پرداخت بیلیارد</h4>
+         <div><label class="block text-gray-300 mb-2">لینک درگاه پرداخت بیلیارد</label> <input type="url" id="billiardPaymentGateway" class="epic-input w-full px-4 py-3 rounded-lg focus:outline-none text-white" placeholder="https://gateway.example.com/billiard">
+         </div>
+        </div>
+       </div>
+       <div class="bg-gradient-to-r from-blue-900/30 to-purple-900/30 p-6 rounded-lg border border-blue-500/20">
+        <h4 class="font-bold text-white mb-3 flex items-center"><i class="fas fa-info-circle text-blue-400 mr-2"></i> راهنمای تنظیمات</h4>
+        <ul class="text-sm text-gray-300 space-y-2">
+         <li>• لینک‌های درگاه پرداخت باید با https شروع شوند</li>
+         <li>• هر نوع دستگاه می‌تواند درگاه پرداخت جداگانه‌ای داشته باشد</li>
+         <li>• پس از پرداخت موفق، رزرو به صورت خودکار تأیید می‌شود</li>
+         <li>• اطلاعات پرداخت در سیستم ذخیره نمی‌شود</li>
+        </ul>
+       </div><button type="submit" class="epic-button btn-primary px-8 py-4 rounded-lg font-bold"> <i class="fas fa-save mr-2"></i>ذخیره تنظیمات درگاه </button>
+      </form>
+     </div>
+    </div><!-- Settings Tab -->
+    <div id="settingsTab" class="dashboard-content hidden">
+     <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+      <div class="glass-card p-8 rounded-2xl">
+       <h3 class="text-2xl font-bold text-white mb-6">تنظیمات عمومی</h3>
+       <form onsubmit="saveGeneralSettings(event)" class="space-y-6">
+        <div><label class="block text-gray-300 mb-2">نام گیم نت</label> <input type="text" id="gamenetName" value="گیم نت لوکا" class="epic-input w-full px-4 py-3 rounded-lg focus:outline-none text-white">
+        </div>
+        <div><label class="block text-gray-300 mb-2">آدرس</label> <input type="text" id="gamenetAddress" value="تهران، خیابان ولیعصر، پلاک 123" class="epic-input w-full px-4 py-3 rounded-lg focus:outline-none text-white">
+        </div>
+        <div><label class="block text-gray-300 mb-2">تلفن تماس</label> <input type="tel" id="gamenetPhone" value="021-12345678" class="epic-input w-full px-4 py-3 rounded-lg focus:outline-none text-white">
+        </div>
+        <div><label class="block text-gray-300 mb-2">ساعات کاری</label> <input type="text" id="workingHours" value="24 ساعته" class="epic-input w-full px-4 py-3 rounded-lg focus:outline-none text-white">
+        </div>
+        <div><label class="block text-gray-300 mb-2">شماره تماس لغو رزرو</label> <input type="tel" id="cancelPhone" value="021-12345678" class="epic-input w-full px-4 py-3 rounded-lg focus:outline-none text-white">
+        </div><button type="submit" class="epic-button btn-primary px-6 py-3 rounded-lg font-bold"> <i class="fas fa-save mr-2"></i>ذخیره تغییرات </button>
+       </form>
+      </div>
+      <div class="glass-card p-8 rounded-2xl">
+       <h3 class="text-2xl font-bold text-white mb-6">تنظیمات قیمت‌گذاری</h3>
+       <form onsubmit="savePricingSettings(event)" class="space-y-6">
+        <div><label class="block text-gray-300 mb-2">قیمت PC (هر ساعت)</label> <input type="number" id="pcPrice" value="15000" class="epic-input w-full px-4 py-3 rounded-lg focus:outline-none text-white">
+        </div>
+        <div><label class="block text-gray-300 mb-2">قیمت PS5 (هر ساعت)</label> <input type="number" id="ps5Price" value="25000" class="epic-input w-full px-4 py-3 rounded-lg focus:outline-none text-white">
+        </div>
+        <div><label class="block text-gray-300 mb-2">قیمت PS4 (هر ساعت)</label> <input type="number" id="ps4Price" value="20000" class="epic-input w-full px-4 py-3 rounded-lg focus:outline-none text-white">
+        </div>
+        <div><label class="block text-gray-300 mb-2">قیمت بیلیارد (هر ساعت)</label> <input type="number" id="billiardPrice" value="30000" class="epic-input w-full px-4 py-3 rounded-lg focus:outline-none text-white">
+        </div><button type="submit" class="epic-button btn-primary px-6 py-3 rounded-lg font-bold"> <i class="fas fa-save mr-2"></i>ذخیره قیمت‌ها </button>
+       </form>
+      </div>
+     </div>
+    </div>
+   </div>
+  </section><!-- Login Modal -->
+  <div id="loginModal" class="fixed inset-0 modal hidden items-center justify-center z-50">
+   <div class="glass-card p-8 max-w-lg w-full mx-4 rounded-2xl modal-enter">
+    <div class="text-center mb-8">
+     <div class="w-20 h-20 hero-gradient rounded-full flex items-center justify-center mx-auto mb-6 pulse-glow"><i class="fas fa-user-shield text-white text-3xl"></i>
+     </div>
+     <h2 class="text-3xl font-black text-gradient glow-text">ورود مدیر</h2>
+     <p class="text-gray-300 mt-2">به پنل مدیریت وارد شوید</p>
+    </div>
+    <form onsubmit="handleLogin(event)" class="space-y-6">
+     <div><label class="block text-gray-300 mb-3 font-bold"> <i class="fas fa-envelope text-blue-400 mr-2"></i>ایمیل </label> <input type="email" id="loginUsername" required class="epic-input w-full px-6 py-4 rounded-xl focus:outline-none text-white text-lg" placeholder="ایمیل خود را وارد کنید">
+     </div>
+     <div><label class="block text-gray-300 mb-3 font-bold"> <i class="fas fa-key text-yellow-400 mr-2"></i>رمز عبور </label> <input type="password" id="loginPassword" required class="epic-input w-full px-6 py-4 rounded-xl focus:outline-none text-white text-lg" placeholder="رمز عبور خود را وارد کنید">
+     </div><button type="submit" class="w-full epic-button btn-primary py-5 rounded-2xl text-xl font-bold"> <i class="fas fa-sign-in-alt mr-3"></i>ورود به پنل </button>
+    </form><button onclick="closeLoginModal()" class="absolute top-6 right-6 text-gray-400 hover:text-white text-2xl"> <i class="fas fa-times"></i> </button>
+   </div>
+  </div><!-- Reservation Success Modal -->
+  <div id="reservationSuccessModal" class="fixed inset-0 modal hidden items-center justify-center z-50">
+   <div class="glass-card p-8 max-w-md w-full mx-4 rounded-2xl modal-enter">
+    <div class="text-center">
+     <div class="w-20 h-20 hero-gradient rounded-full flex items-center justify-center mx-auto mb-6 pulse-glow"><i class="fas fa-check text-white text-3xl"></i>
+     </div>
+     <h3 class="text-2xl font-bold mb-4 text-gradient">رزرو موفق! 🎉</h3>
+     <p class="text-gray-300 mb-6">رزرو شما با موفقیت ثبت شد و در انتظار تأیید است</p>
+     <div class="bg-gradient-to-r from-green-900/30 to-blue-900/30 p-4 rounded-lg border border-green-500/20 mb-6">
+      <p class="text-sm text-green-300"><i class="fas fa-info-circle mr-2"></i> کد رزرو شما: <span class="font-bold" id="reservationCode"></span></p>
+     </div><button onclick="closeReservationSuccessModal()" class="w-full epic-button btn-primary py-3 rounded-lg font-bold"> متوجه شدم </button>
+    </div>
+   </div>
+  </div><!-- Footer -->
+  <footer class="bg-black py-12 border-t border-gray-800">
+   <div class="container mx-auto px-6">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+     <div>
+      <div class="flex items-center space-x-3 space-x-reverse mb-4">
+       <div class="w-12 h-12 hero-gradient rounded-full flex items-center justify-center"><i class="fas fa-gamepad text-white"></i>
+       </div>
+       <div>
+        <h3 class="text-xl font-bold text-gradient">گیم نت لوکا</h3>
+        <p class="text-sm text-gray-400">بهترین مرکز گیمینگ</p>
+       </div>
+      </div>
+      <p class="text-gray-400">با جدیدترین دستگاه‌ها و بهترین امکانات، تجربه‌ای فراموش‌نشدنی از دنیای گیمینگ داشته باشید.</p>
+     </div>
+     <div>
+      <h4 class="font-bold mb-4 text-white">دستگاه‌ها</h4>
+      <ul class="space-y-2 text-gray-400">
+       <li>5 سیستم PC قدرتمند</li>
+       <li>3 دستگاه PlayStation 5</li>
+       <li>2 دستگاه PlayStation 4</li>
+       <li>2 میز بیلیارد حرفه‌ای</li>
+      </ul>
+     </div>
+     <div>
+      <h4 class="font-bold mb-4 text-white">خدمات</h4>
+      <ul class="space-y-2 text-gray-400">
+       <li>رزرو آنلاین</li>
+       <li>بازی گروهی</li>
+       <li>مسابقات هفتگی</li>
+       <li>بوفه و نوشیدنی</li>
+      </ul>
+     </div>
+     <div>
+      <h4 class="font-bold mb-4 text-white">تماس با ما</h4>
+      <div class="space-y-2 text-gray-400">
+       <p><i class="fas fa-phone mr-2"></i>021-12345678</p>
+       <p><i class="fas fa-map-marker-alt mr-2"></i>تهران، ولیعصر، پلاک 123</p>
+       <p><i class="fas fa-clock mr-2"></i>24 ساعته</p>
+      </div>
+     </div>
+    </div>
+    <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+     <p>© 1403 گیم نت لوکا. تمامی حقوق محفوظ است.</p>
+    </div>
+   </div>
+  </footer>
+  <script>
+        // Global Variables
+        let currentUser = null;
+        let devices = [];
+        let reservations = [];
+        let messages = [];
+        let selectedTimeSlot = null;
+        
+        // Device prices
+        const devicePrices = {
+            pc: 15000,
+            ps5: 25000,
+            ps4: 20000,
+            billiard: 30000
+        };
+        
+        // Payment gateways
+        let paymentGateways = {
+            pc: '',
+            ps5: '',
+            ps4: '',
+            billiard: ''
+        };
+        
+        // Data SDK Configuration
+        const defaultConfig = {
+            site_name: "گیم نت لوکا",
+            primary_color: "#10b981",
+            secondary_color: "#059669",
+            background_color: "#000000"
+        };
+        
+        // Data Handler for SDK
+        const dataHandler = {
+            onDataChanged(data) {
+                // Update reservations when data changes
+                reservations = data.filter(item => item.type === 'reservation');
+                updateDashboardStats();
+                loadReservationsTable();
+            }
+        };
+        
+        // Initialize app
+        document.addEventListener('DOMContentLoaded', async function() {
+            // Initialize Data SDK
+            if (window.dataSdk) {
+                const initResult = await window.dataSdk.init(dataHandler);
+                if (initResult.isOk) {
+                    console.log('Data SDK initialized successfully');
+                } else {
+                    console.error('Failed to initialize Data SDK');
+                }
+            }
+            
+            // Initialize Element SDK
+            if (window.elementSdk) {
+                await window.elementSdk.init({
+                    defaultConfig,
+                    onConfigChange: async (config) => {
+                        // Update UI based on config changes
+                        updateSiteColors(config);
+                    },
+                    mapToCapabilities: (config) => ({
+                        recolorables: [
+                            {
+                                get: () => config.primary_color || defaultConfig.primary_color,
+                                set: (value) => {
+                                    config.primary_color = value;
+                                    window.elementSdk.setConfig({ primary_color: value });
+                                }
+                            },
+                            {
+                                get: () => config.secondary_color || defaultConfig.secondary_color,
+                                set: (value) => {
+                                    config.secondary_color = value;
+                                    window.elementSdk.setConfig({ secondary_color: value });
+                                }
+                            },
+                            {
+                                get: () => config.background_color || defaultConfig.background_color,
+                                set: (value) => {
+                                    config.background_color = value;
+                                    window.elementSdk.setConfig({ background_color: value });
+                                }
+                            }
+                        ],
+                        borderables: [],
+                        fontEditable: undefined,
+                        fontSizeable: undefined
+                    }),
+                    mapToEditPanelValues: (config) => new Map([
+                        ["site_name", config.site_name || defaultConfig.site_name]
+                    ])
+                });
+            }
+            
+            initializeApp();
+        });
+        
+        function updateSiteColors(config) {
+            const primaryColor = config.primary_color || defaultConfig.primary_color;
+            const secondaryColor = config.secondary_color || defaultConfig.secondary_color;
+            const backgroundColor = config.background_color || defaultConfig.background_color;
+            
+            // Update CSS custom properties
+            document.documentElement.style.setProperty('--primary-color', primaryColor);
+            document.documentElement.style.setProperty('--secondary-color', secondaryColor);
+            document.documentElement.style.setProperty('--background-color', backgroundColor);
+            
+            // Update site name if changed
+            if (config.site_name && config.site_name !== defaultConfig.site_name) {
+                document.querySelectorAll('h1').forEach(h1 => {
+                    if (h1.textContent.includes('گیم نت لوکا')) {
+                        h1.textContent = h1.textContent.replace('گیم نت لوکا', config.site_name);
+                    }
+                });
+            }
+        }
+        
+        function initializeApp() {
+            loadDevices();
+            loadReservations();
+            updateDashboardStats();
+            
+            // Set minimum date to today (Persian calendar)
+            const today = new Date();
+            const persianDate = convertToPersianDate(today);
+            const dateInput = document.getElementById('reservationDate');
+            if (dateInput) {
+                dateInput.type = 'text';
+                dateInput.placeholder = 'مثال: 1403/09/15';
+                dateInput.value = persianDate;
+                dateInput.setAttribute('data-persian-date', persianDate);
+            }
+        }
+        
+        function loadDevices() {
+            devices = [
+                // PC Systems
+                { id: 'pc-1', type: 'pc', name: 'سیستم PC شماره 1', status: 'available', specs: 'RTX 4080, i7-13700K, 32GB RAM' },
+                { id: 'pc-2', type: 'pc', name: 'سیستم PC شماره 2', status: 'available', specs: 'RTX 4070, i5-13600K, 16GB RAM' },
+                { id: 'pc-3', type: 'pc', name: 'سیستم PC شماره 3', status: 'occupied', specs: 'RTX 4060, i5-12600K, 16GB RAM' },
+                { id: 'pc-4', type: 'pc', name: 'سیستم PC شماره 4', status: 'available', specs: 'RTX 4080, i7-13700K, 32GB RAM' },
+                { id: 'pc-5', type: 'pc', name: 'سیستم PC شماره 5', status: 'reserved', specs: 'RTX 4070, i5-13600K, 16GB RAM' },
+                
+                // PS5 Systems
+                { id: 'ps5-1', type: 'ps5', name: 'PlayStation 5 شماره 1', status: 'available', specs: 'کنترلر DualSense، 4K Gaming' },
+                { id: 'ps5-2', type: 'ps5', name: 'PlayStation 5 شماره 2', status: 'occupied', specs: 'کنترلر DualSense، 4K Gaming' },
+                { id: 'ps5-3', type: 'ps5', name: 'PlayStation 5 شماره 3', status: 'available', specs: 'کنترلر DualSense، 4K Gaming' },
+                
+                // PS4 Systems
+                { id: 'ps4-1', type: 'ps4', name: 'PlayStation 4 شماره 1', status: 'available', specs: 'کنترلر DualShock 4، Full HD' },
+                { id: 'ps4-2', type: 'ps4', name: 'PlayStation 4 شماره 2', status: 'available', specs: 'کنترلر DualShock 4، Full HD' },
+                
+                // Billiard Tables
+                { id: 'billiard-1', type: 'billiard', name: 'میز بیلیارد شماره 1', status: 'available', specs: 'میز حرفه‌ای، چوب‌های استاندارد' },
+                { id: 'billiard-2', type: 'billiard', name: 'میز بیلیارد شماره 2', status: 'reserved', specs: 'میز حرفه‌ای، چوب‌های استاندارد' }
+            ];
+            
+            loadDevicesGrid();
+            loadDevicesManagement();
+        }
+        
+        function loadDevicesGrid() {
+            const grid = document.getElementById('devicesGrid');
+            if (!grid) return;
+            
+            grid.innerHTML = '';
+            
+            const deviceTypes = {
+                pc: { name: 'سیستم‌های PC', icon: 'fas fa-desktop', count: 5 },
+                ps5: { name: 'PlayStation 5', icon: 'fab fa-playstation', count: 3 },
+                ps4: { name: 'PlayStation 4', icon: 'fab fa-playstation', count: 2 },
+                billiard: { name: 'میز بیلیارد', icon: 'fas fa-table-tennis', count: 2 }
+            };
+            
+            Object.keys(deviceTypes).forEach(type => {
+                const typeInfo = deviceTypes[type];
+                const typeDevices = devices.filter(d => d.type === type);
+                const availableCount = typeDevices.filter(d => d.status === 'available').length;
+                
+                const card = document.createElement('div');
+                card.className = 'device-card p-8 rounded-2xl text-center gaming-card';
+                
+                card.innerHTML = `
+                    <div class="gaming-icon mb-6">
+                        <i class="${typeInfo.icon} text-3xl text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">${typeInfo.name}</h3>
+                    <p class="text-gray-300 mb-4">تعداد کل: ${typeInfo.count}</p>
+                    <p class="text-green-400 font-bold mb-6">در دسترس: ${availableCount}</p>
+                    <button onclick="showSection('reservation')" class="epic-button btn-primary px-6 py-3 rounded-lg font-bold w-full">
+                        <i class="fas fa-calendar-plus mr-2"></i>رزرو کن
+                    </button>
+                `;
+                
+                grid.appendChild(card);
+            });
+        }
+        
+        function loadDevicesManagement() {
+            const grid = document.getElementById('devicesManagementGrid');
+            if (!grid) return;
+            
+            grid.innerHTML = '';
+            
+            devices.forEach(device => {
+                const card = document.createElement('div');
+                card.className = 'glass-card p-6 rounded-2xl';
+                
+                const statusClass = device.status === 'available' ? 'device-available' : 
+                                  device.status === 'occupied' ? 'device-occupied' : 'device-reserved';
+                
+                const statusText = device.status === 'available' ? 'آزاد' : 
+                                 device.status === 'occupied' ? 'اشغال' : 'رزرو شده';
+                
+                card.innerHTML = `
+                    <div class="flex justify-between items-start mb-4">
+                        <h4 class="font-bold text-white">${device.name}</h4>
+                        <span class="px-3 py-1 rounded-full text-sm font-bold ${statusClass}">${statusText}</span>
+                    </div>
+                    <p class="text-gray-300 text-sm mb-4">${device.specs}</p>
+                    <div class="flex gap-2">
+                        <button onclick="changeDeviceStatus('${device.id}')" class="epic-button btn-secondary px-3 py-2 rounded-lg font-bold text-sm">
+                            تغییر وضعیت
+                        </button>
+                        <button onclick="editDevice('${device.id}')" class="epic-button btn-primary px-3 py-2 rounded-lg font-bold text-sm">
+                            <i class="fas fa-edit"></i>
+                        </button>
+                        <button onclick="deleteDevice('${device.id}')" class="btn-danger px-3 py-2 rounded-lg font-bold text-sm">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </div>
+                `;
+                
+                grid.appendChild(card);
+            });
+        }
+        
+        function updateAvailableDevices() {
+            const deviceType = document.getElementById('deviceType').value;
+            const deviceSelect = document.getElementById('deviceId');
+            
+            deviceSelect.innerHTML = '<option value="">انتخاب کنید</option>';
+            
+            if (deviceType) {
+                const availableDevices = devices.filter(d => d.type === deviceType && d.status === 'available');
+                
+                availableDevices.forEach(device => {
+                    const option = document.createElement('option');
+                    option.value = device.id;
+                    option.textContent = device.name;
+                    deviceSelect.appendChild(option);
+                });
+                
+                if (availableDevices.length === 0) {
+                    const option = document.createElement('option');
+                    option.value = '';
+                    option.textContent = 'هیچ دستگاهی در دسترس نیست';
+                    option.disabled = true;
+                    deviceSelect.appendChild(option);
+                }
+            }
+        }
+        
+        function updateTimeSlots() {
+            const date = document.getElementById('reservationDate').value;
+            const duration = document.getElementById('duration').value;
+            const deviceId = document.getElementById('deviceId').value;
+            const timeSlotsContainer = document.getElementById('timeSlots');
+            
+            if (!date || !duration || !deviceId) {
+                timeSlotsContainer.innerHTML = '<p class="text-gray-400 col-span-full text-center">ابتدا تمام فیلدها را پر کنید</p>';
+                return;
+            }
+            
+            timeSlotsContainer.innerHTML = '';
+            
+            // Generate time slots from 8 AM to 11 PM
+            const startHour = 8;
+            const endHour = 23;
+            const durationHours = parseInt(duration);
+            
+            for (let hour = startHour; hour <= endHour - durationHours; hour++) {
+                const timeSlot = document.createElement('button');
+                timeSlot.type = 'button';
+                timeSlot.className = 'time-slot p-3 rounded-lg text-center font-bold';
+                
+                const startTime = `${hour.toString().padStart(2, '0')}:00`;
+                const endTime = `${(hour + durationHours).toString().padStart(2, '0')}:00`;
+                
+                timeSlot.innerHTML = `
+                    <div class="text-sm">${startTime}</div>
+                    <div class="text-xs opacity-75">تا ${endTime}</div>
+                `;
+                
+                // Check if this time slot is available
+                const isAvailable = checkTimeSlotAvailability(deviceId, date, hour, durationHours);
+                
+                if (!isAvailable) {
+                    timeSlot.classList.add('unavailable');
+                    timeSlot.disabled = true;
+                } else {
+                    timeSlot.onclick = () => selectTimeSlot(timeSlot, hour);
+                }
+                
+                timeSlotsContainer.appendChild(timeSlot);
+            }
+        }
+        
+        function checkTimeSlotAvailability(deviceId, date, startHour, duration) {
+            // Check if there are any conflicting reservations
+            const conflictingReservations = reservations.filter(reservation => 
+                reservation.device_id === deviceId && 
+                reservation.date === date &&
+                reservation.status !== 'cancelled' &&
+                (
+                    (startHour >= reservation.start_hour && startHour < reservation.start_hour + reservation.duration) ||
+                    (startHour + duration > reservation.start_hour && startHour + duration <= reservation.start_hour + reservation.duration) ||
+                    (startHour <= reservation.start_hour && startHour + duration >= reservation.start_hour + reservation.duration)
+                )
+            );
+            
+            return conflictingReservations.length === 0;
+        }
+        
+        function selectTimeSlot(element, hour) {
+            // Remove previous selection
+            document.querySelectorAll('.time-slot.selected').forEach(slot => {
+                slot.classList.remove('selected');
+            });
+            
+            // Select current slot
+            element.classList.add('selected');
+            selectedTimeSlot = hour;
+        }
+        
+        async function submitReservation(event) {
+            event.preventDefault();
+            
+            if (!selectedTimeSlot) {
+                showNotification('لطفاً زمان شروع را انتخاب کنید', 'warning');
+                return;
+            }
+            
+            const formData = {
+                type: 'reservation',
+                customer_name: document.getElementById('customerName').value,
+                customer_phone: document.getElementById('customerPhone').value,
+                device_type: document.getElementById('deviceType').value,
+                device_id: document.getElementById('deviceId').value,
+                date: document.getElementById('reservationDate').value,
+                start_hour: selectedTimeSlot,
+                duration: parseInt(document.getElementById('duration').value),
+                notes: document.getElementById('reservationNotes').value,
+                status: 'pending',
+                created_at: new Date().toISOString(),
+                reservation_code: generateReservationCode()
+            };
+            
+            // Calculate total price
+            const deviceType = formData.device_type;
+            const duration = formData.duration;
+            formData.total_price = devicePrices[deviceType] * duration;
+            
+            // Save to Data SDK
+            if (window.dataSdk) {
+                const result = await window.dataSdk.create(formData);
+                if (result.isOk) {
+                    // Show success modal
+                    document.getElementById('reservationCode').textContent = formData.reservation_code;
+                    showReservationSuccessModal();
+                    
+                    // Reset form
+                    event.target.reset();
+                    selectedTimeSlot = null;
+                    document.getElementById('timeSlots').innerHTML = '<p class="text-gray-400 col-span-full text-center">ابتدا تاریخ و مدت زمان را انتخاب کنید</p>';
+                    document.getElementById('deviceId').innerHTML = '<option value="">ابتدا نوع دستگاه را انتخاب کنید</option>';
+                } else {
+                    showNotification('خطا در ثبت رزرو. لطفاً دوباره تلاش کنید.', 'error');
+                }
+            }
+        }
+        
+        function generateReservationCode() {
+            return 'RES' + Date.now().toString().slice(-6);
+        }
+        
+        function showReservationSuccessModal() {
+            document.getElementById('reservationSuccessModal').classList.remove('hidden');
+            document.getElementById('reservationSuccessModal').classList.add('flex');
+        }
+        
+        function closeReservationSuccessModal() {
+            document.getElementById('reservationSuccessModal').classList.add('hidden');
+            document.getElementById('reservationSuccessModal').classList.remove('flex');
+        }
+        
+        function loadReservations() {
+            // This will be populated by the Data SDK
+            reservations = [];
+        }
+        
+        function loadReservationsTable() {
+            const tbody = document.getElementById('reservationsTableBody');
+            if (!tbody) return;
+            
+            tbody.innerHTML = '';
+            
+            if (reservations.length === 0) {
+                tbody.innerHTML = `
+                    <tr>
+                        <td colspan="9" class="text-center py-8 text-gray-400">
+                            هیچ رزروی ثبت نشده است
+                        </td>
+                    </tr>
+                `;
+                return;
+            }
+            
+            reservations.forEach((reservation, index) => {
+                const device = devices.find(d => d.id === reservation.device_id);
+                const deviceName = device ? device.name : 'نامشخص';
+                
+                const row = document.createElement('tr');
+                row.className = 'border-b border-gray-700';
+                
+                const statusClass = `status-${reservation.status}`;
+                const statusText = {
+                    pending: 'در انتظار تأیید',
+                    confirmed: 'تأیید شده',
+                    cancelled: 'لغو شده',
+                    completed: 'تکمیل شده'
+                }[reservation.status] || reservation.status;
+                
+                const startTime = `${reservation.start_hour.toString().padStart(2, '0')}:00`;
+                const endTime = `${(reservation.start_hour + reservation.duration).toString().padStart(2, '0')}:00`;
+                
+                row.innerHTML = `
+                    <td class="py-3">${reservation.reservation_code}</td>
+                    <td class="py-3">${reservation.customer_name}</td>
+                    <td class="py-3">${reservation.customer_phone}</td>
+                    <td class="py-3">${deviceName}</td>
+                    <td class="py-3">${reservation.date}</td>
+                    <td class="py-3">${startTime} - ${endTime}</td>
+                    <td class="py-3">${reservation.duration} ساعت</td>
+                    <td class="py-3">
+                        <span class="reservation-status ${statusClass}">${statusText}</span>
+                    </td>
+                    <td class="py-3">
+                        <div class="flex gap-2">
+                            ${reservation.status === 'pending' ? `
+                                <button onclick="updateReservationStatus('${reservation.__backendId}', 'confirmed')" 
+                                        class="epic-button btn-primary px-3 py-1 rounded text-sm">
+                                    تأیید
+                                </button>
+                                <button onclick="updateReservationStatus('${reservation.__backendId}', 'cancelled')" 
+                                        class="btn-danger px-3 py-1 rounded text-sm">
+                                    لغو
+                                </button>
+                            ` : ''}
+                            <button onclick="viewReservationDetails('${reservation.__backendId}')" 
+                                    class="epic-button btn-secondary px-3 py-1 rounded text-sm">
+                                جزئیات
+                            </button>
+                        </div>
+                    </td>
+                `;
+                
+                tbody.appendChild(row);
+            });
+        }
+        
+        async function updateReservationStatus(reservationId, newStatus) {
+            const reservation = reservations.find(r => r.__backendId === reservationId);
+            if (!reservation) return;
+            
+            reservation.status = newStatus;
+            
+            if (window.dataSdk) {
+                const result = await window.dataSdk.update(reservation);
+                if (result.isOk) {
+                    showNotification(`وضعیت رزرو به "${newStatus}" تغییر یافت`, 'success');
+                    updateDashboardStats();
+                } else {
+                    showNotification('خطا در به‌روزرسانی وضعیت', 'error');
+                }
+            }
+        }
+        
+        function updateDashboardStats() {
+            const totalReservationsEl = document.getElementById('totalReservations');
+            const activeDevicesEl = document.getElementById('activeDevices');
+            const todayReservationsEl = document.getElementById('todayReservations');
+            const todayRevenueEl = document.getElementById('todayRevenue');
+            
+            if (totalReservationsEl) totalReservationsEl.textContent = reservations.length;
+            
+            const occupiedDevices = devices.filter(d => d.status === 'occupied').length;
+            if (activeDevicesEl) activeDevicesEl.textContent = occupiedDevices;
+            
+            const today = new Date().toISOString().split('T')[0];
+            const todayReservations = reservations.filter(r => r.date === today);
+            if (todayReservationsEl) todayReservationsEl.textContent = todayReservations.length;
+            
+            const todayRevenue = todayReservations.reduce((sum, r) => sum + (r.total_price || 0), 0);
+            if (todayRevenueEl) todayRevenueEl.textContent = todayRevenue.toLocaleString() + ' تومان';
+        }
+        
+        // Navigation and UI functions
+        function showSection(sectionName) {
+            // Hide all sections
+            document.querySelectorAll('.section').forEach(section => {
+                section.classList.add('hidden');
+            });
+            
+            // Show selected section
+            const targetSection = document.getElementById(sectionName + 'Section');
+            if (targetSection) {
+                targetSection.classList.remove('hidden');
+            }
+            
+            // Update navigation
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                btn.classList.remove('text-green-400');
+                btn.classList.add('text-white');
+            });
+            
+            event.target.classList.remove('text-white');
+            event.target.classList.add('text-green-400');
+        }
+        
+        function showDashboardTab(tabName) {
+            // Hide all tabs
+            document.querySelectorAll('.dashboard-content').forEach(tab => tab.classList.add('hidden'));
+            document.querySelectorAll('.dashboard-tab').forEach(btn => btn.classList.remove('active'));
+            
+            // Show selected tab
+            document.getElementById(tabName + 'Tab').classList.remove('hidden');
+            event.target.classList.add('active');
+            
+            if (tabName === 'reservations') {
+                loadReservationsTable();
+            } else if (tabName === 'devices') {
+                loadDevicesManagement();
+            } else if (tabName === 'payment') {
+                loadPaymentGateways();
+            }
+        }
+        
+        function showLoginModal() {
+            document.getElementById('loginModal').classList.remove('hidden');
+            document.getElementById('loginModal').classList.add('flex');
+        }
+        
+        function closeLoginModal() {
+            document.getElementById('loginModal').classList.add('hidden');
+            document.getElementById('loginModal').classList.remove('flex');
+        }
+        
+        function handleLogin(event) {
+            event.preventDefault();
+            
+            const username = document.getElementById('loginUsername').value;
+            const password = document.getElementById('loginPassword').value;
+            
+            // Admin check with email and password
+            if (username === 'gameloka@gmail.com' && password === 'admin') {
+                currentUser = { username: 'gameloka@gmail.com', role: 'مدیر سیستم' };
+                
+                // Show user info
+                document.getElementById('loginBtn').classList.add('hidden');
+                document.getElementById('userInfo').classList.remove('hidden');
+                document.getElementById('userName').textContent = 'مدیر سیستم';
+                document.getElementById('userRole').textContent = 'مدیر';
+                document.getElementById('dashboardBtn').classList.remove('hidden');
+                
+                closeLoginModal();
+                showNotification('خوش آمدید! 🎉', 'success');
+            } else {
+                showNotification('ایمیل یا رمز عبور اشتباه است!', 'error');
+            }
+        }
+        
+        function logout() {
+            currentUser = null;
+            
+            document.getElementById('loginBtn').classList.remove('hidden');
+            document.getElementById('userInfo').classList.add('hidden');
+            document.getElementById('dashboardBtn').classList.add('hidden');
+            
+            showSection('home');
+            showNotification('با موفقیت خارج شدید!', 'info');
+        }
+        
+        function submitContactForm(event) {
+            event.preventDefault();
+            showNotification('پیام شما با موفقیت ارسال شد!', 'success');
+            event.target.reset();
+        }
+        
+        function showNotification(message, type = 'info') {
+            const notification = document.createElement('div');
+            notification.className = `notification glass-card p-4 rounded-lg max-w-sm`;
+            
+            const colors = {
+                success: 'border-green-500 text-green-300',
+                error: 'border-red-500 text-red-300',
+                warning: 'border-yellow-500 text-yellow-300',
+                info: 'border-blue-500 text-blue-300'
+            };
+            
+            notification.classList.add(colors[type] || colors.info);
+            notification.innerHTML = `
+                <div class="flex items-center">
+                    <i class="fas fa-${type === 'success' ? 'check-circle' : type === 'error' ? 'exclamation-circle' : type === 'warning' ? 'exclamation-triangle' : 'info-circle'} mr-3"></i>
+                    <span>${message}</span>
+                </div>
+            `;
+            
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.remove();
+            }, 5000);
+        }
+        
+        // Persian date conversion functions
+        function convertToPersianDate(date) {
+            const persianDate = new Intl.DateTimeFormat('fa-IR-u-ca-persian', {
+                year: 'numeric',
+                month: '2-digit',
+                day: '2-digit'
+            }).format(date);
+            return persianDate.replace(/\//g, '/');
+        }
+        
+        function convertFromPersianDate(persianDateString) {
+            // Simple conversion - in real app you'd use a proper Persian calendar library
+            const parts = persianDateString.split('/');
+            if (parts.length !== 3) return new Date();
+            
+            // Approximate conversion (this is simplified)
+            const persianYear = parseInt(parts[0]);
+            const persianMonth = parseInt(parts[1]);
+            const persianDay = parseInt(parts[2]);
+            
+            // Convert to Gregorian (simplified approximation)
+            const gregorianYear = persianYear + 621;
+            const gregorianMonth = persianMonth;
+            const gregorianDay = persianDay;
+            
+            return new Date(gregorianYear, gregorianMonth - 1, gregorianDay);
+        }
+        
+        // Device management functions
+        function addNewDevice() {
+            const deviceTypes = {
+                pc: 'سیستم PC',
+                ps5: 'PlayStation 5',
+                ps4: 'PlayStation 4',
+                billiard: 'میز بیلیارد'
+            };
+            
+            // Create modal for adding device
+            const modal = document.createElement('div');
+            modal.className = 'fixed inset-0 modal flex items-center justify-center z-50';
+            modal.innerHTML = `
+                <div class="glass-card p-8 max-w-lg w-full mx-4 rounded-2xl modal-enter">
+                    <h3 class="text-2xl font-bold mb-6 text-gradient">افزودن دستگاه جدید</h3>
+                    
+                    <form onsubmit="saveNewDevice(event)" class="space-y-6">
+                        <div>
+                            <label class="block text-gray-300 mb-2">نوع دستگاه</label>
+                            <select id="newDeviceType" required class="epic-input w-full px-4 py-3 rounded-lg focus:outline-none text-white">
+                                <option value="">انتخاب کنید</option>
+                                ${Object.keys(deviceTypes).map(type => 
+                                    `<option value="${type}">${deviceTypes[type]}</option>`
+                                ).join('')}
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-gray-300 mb-2">نام دستگاه</label>
+                            <input type="text" id="newDeviceName" required 
+                                   class="epic-input w-full px-4 py-3 rounded-lg focus:outline-none text-white"
+                                   placeholder="مثال: سیستم PC شماره 6">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-gray-300 mb-2">مشخصات</label>
+                            <textarea id="newDeviceSpecs" required 
+                                      class="epic-input w-full px-4 py-3 rounded-lg focus:outline-none text-white"
+                                      placeholder="مشخصات فنی دستگاه..."></textarea>
+                        </div>
+                        
+                        <div class="flex gap-4">
+                            <button type="submit" class="epic-button btn-primary px-6 py-3 rounded-lg font-bold flex-1">
+                                <i class="fas fa-plus mr-2"></i>افزودن
+                            </button>
+                            <button type="button" onclick="this.closest('.modal').remove()" 
+                                    class="epic-button btn-secondary px-6 py-3 rounded-lg font-bold">
+                                لغو
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            `;
+            
+            document.body.appendChild(modal);
+        }
+        
+        function saveNewDevice(event) {
+            event.preventDefault();
+            
+            const type = document.getElementById('newDeviceType').value;
+            const name = document.getElementById('newDeviceName').value;
+            const specs = document.getElementById('newDeviceSpecs').value;
+            
+            // Generate new device ID
+            const typeDevices = devices.filter(d => d.type === type);
+            const nextNumber = typeDevices.length + 1;
+            const deviceId = `${type}-${nextNumber}`;
+            
+            const newDevice = {
+                id: deviceId,
+                type: type,
+                name: name,
+                status: 'available',
+                specs: specs
+            };
+            
+            devices.push(newDevice);
+            loadDevicesManagement();
+            loadDevicesGrid();
+            updateDashboardStats();
+            
+            // Close modal
+            event.target.closest('.modal').remove();
+            
+            showNotification('دستگاه جدید با موفقیت اضافه شد!', 'success');
+        }
+        
+        function editDevice(deviceId) {
+            const device = devices.find(d => d.id === deviceId);
+            if (!device) return;
+            
+            const modal = document.createElement('div');
+            modal.className = 'fixed inset-0 modal flex items-center justify-center z-50';
+            modal.innerHTML = `
+                <div class="glass-card p-8 max-w-lg w-full mx-4 rounded-2xl modal-enter">
+                    <h3 class="text-2xl font-bold mb-6 text-gradient">ویرایش دستگاه</h3>
+                    
+                    <form onsubmit="saveEditDevice(event, '${deviceId}')" class="space-y-6">
+                        <div>
+                            <label class="block text-gray-300 mb-2">نام دستگاه</label>
+                            <input type="text" id="editDeviceName" value="${device.name}" required 
+                                   class="epic-input w-full px-4 py-3 rounded-lg focus:outline-none text-white">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-gray-300 mb-2">مشخصات</label>
+                            <textarea id="editDeviceSpecs" required 
+                                      class="epic-input w-full px-4 py-3 rounded-lg focus:outline-none text-white">${device.specs}</textarea>
+                        </div>
+                        
+                        <div class="flex gap-4">
+                            <button type="submit" class="epic-button btn-primary px-6 py-3 rounded-lg font-bold flex-1">
+                                <i class="fas fa-save mr-2"></i>ذخیره
+                            </button>
+                            <button type="button" onclick="this.closest('.modal').remove()" 
+                                    class="epic-button btn-secondary px-6 py-3 rounded-lg font-bold">
+                                لغو
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            `;
+            
+            document.body.appendChild(modal);
+        }
+        
+        function saveEditDevice(event, deviceId) {
+            event.preventDefault();
+            
+            const device = devices.find(d => d.id === deviceId);
+            if (!device) return;
+            
+            device.name = document.getElementById('editDeviceName').value;
+            device.specs = document.getElementById('editDeviceSpecs').value;
+            
+            loadDevicesManagement();
+            loadDevicesGrid();
+            
+            // Close modal
+            event.target.closest('.modal').remove();
+            
+            showNotification('دستگاه با موفقیت ویرایش شد!', 'success');
+        }
+        
+        function deleteDevice(deviceId) {
+            const device = devices.find(d => d.id === deviceId);
+            if (!device) return;
+            
+            // Create confirmation modal
+            const modal = document.createElement('div');
+            modal.className = 'fixed inset-0 modal flex items-center justify-center z-50';
+            modal.innerHTML = `
+                <div class="glass-card p-8 max-w-md w-full mx-4 rounded-2xl modal-enter">
+                    <div class="text-center">
+                        <div class="w-20 h-20 bg-red-500 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <i class="fas fa-exclamation-triangle text-white text-3xl"></i>
+                        </div>
+                        
+                        <h3 class="text-2xl font-bold mb-4 text-red-400">حذف دستگاه</h3>
+                        <p class="text-gray-300 mb-6">آیا مطمئن هستید که می‌خواهید "${device.name}" را حذف کنید؟</p>
+                        
+                        <div class="flex gap-4">
+                            <button onclick="confirmDeleteDevice('${deviceId}')" 
+                                    class="btn-danger px-6 py-3 rounded-lg font-bold flex-1">
+                                <i class="fas fa-trash mr-2"></i>حذف
+                            </button>
+                            <button onclick="this.closest('.modal').remove()" 
+                                    class="epic-button btn-secondary px-6 py-3 rounded-lg font-bold flex-1">
+                                لغو
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            document.body.appendChild(modal);
+        }
+        
+        function confirmDeleteDevice(deviceId) {
+            const deviceIndex = devices.findIndex(d => d.id === deviceId);
+            if (deviceIndex === -1) return;
+            
+            devices.splice(deviceIndex, 1);
+            loadDevicesManagement();
+            loadDevicesGrid();
+            updateDashboardStats();
+            
+            // Close modal
+            document.querySelector('.modal').remove();
+            
+            showNotification('دستگاه با موفقیت حذف شد!', 'success');
+        }
+        
+        // Additional utility functions
+        function refreshReservations() {
+            loadReservationsTable();
+            updateDashboardStats();
+            showNotification('اطلاعات به‌روزرسانی شد', 'success');
+        }
+        
+        function changeDeviceStatus(deviceId) {
+            const device = devices.find(d => d.id === deviceId);
+            if (!device) return;
+            
+            const statuses = ['available', 'occupied', 'reserved'];
+            const currentIndex = statuses.indexOf(device.status);
+            const nextIndex = (currentIndex + 1) % statuses.length;
+            
+            device.status = statuses[nextIndex];
+            loadDevicesManagement();
+            loadDevicesGrid();
+            updateDashboardStats();
+            
+            showNotification(`وضعیت ${device.name} تغییر یافت`, 'success');
+        }
+        
+        function loadPaymentGateways() {
+            // Load current gateway URLs into form fields
+            document.getElementById('pcPaymentGateway').value = paymentGateways.pc || '';
+            document.getElementById('ps5PaymentGateway').value = paymentGateways.ps5 || '';
+            document.getElementById('ps4PaymentGateway').value = paymentGateways.ps4 || '';
+            document.getElementById('billiardPaymentGateway').value = paymentGateways.billiard || '';
+        }
+        
+        function saveGeneralSettings(event) {
+            event.preventDefault();
+            
+            // Update cancel phone number in the reservation section
+            const cancelPhone = document.getElementById('cancelPhone').value;
+            const cancelPhoneDisplay = document.getElementById('cancelPhoneNumber');
+            if (cancelPhoneDisplay) {
+                cancelPhoneDisplay.textContent = cancelPhone;
+            }
+            
+            showNotification('تنظیمات با موفقیت ذخیره شد!', 'success');
+        }
+        
+        function savePricingSettings(event) {
+            event.preventDefault();
+            
+            // Update device prices
+            devicePrices.pc = parseInt(document.getElementById('pcPrice').value);
+            devicePrices.ps5 = parseInt(document.getElementById('ps5Price').value);
+            devicePrices.ps4 = parseInt(document.getElementById('ps4Price').value);
+            devicePrices.billiard = parseInt(document.getElementById('billiardPrice').value);
+            
+            showNotification('قیمت‌ها با موفقیت به‌روزرسانی شد!', 'success');
+        }
+        
+        function savePaymentGateways(event) {
+            event.preventDefault();
+            
+            // Update payment gateways
+            paymentGateways.pc = document.getElementById('pcPaymentGateway').value;
+            paymentGateways.ps5 = document.getElementById('ps5PaymentGateway').value;
+            paymentGateways.ps4 = document.getElementById('ps4PaymentGateway').value;
+            paymentGateways.billiard = document.getElementById('billiardPaymentGateway').value;
+            
+            showNotification('تنظیمات درگاه پرداخت ذخیره شد!', 'success');
+        }
+        
+        function proceedToPayment() {
+            // Validate form first
+            if (!selectedTimeSlot) {
+                showNotification('لطفاً زمان شروع را انتخاب کنید', 'warning');
+                return;
+            }
+            
+            const customerName = document.getElementById('customerName').value;
+            const customerPhone = document.getElementById('customerPhone').value;
+            const deviceType = document.getElementById('deviceType').value;
+            const deviceId = document.getElementById('deviceId').value;
+            const date = document.getElementById('reservationDate').value;
+            
+            if (!customerName || !customerPhone || !deviceType || !deviceId || !date) {
+                showNotification('لطفاً تمام فیلدها را پر کنید', 'warning');
+                return;
+            }
+            
+            // Check if payment gateway is configured
+            const gateway = paymentGateways[deviceType];
+            if (!gateway) {
+                showNotification('درگاه پرداخت برای این نوع دستگاه تنظیم نشده است', 'error');
+                return;
+            }
+            
+            // Create reservation data for payment
+            const reservationData = {
+                type: 'reservation',
+                customer_name: customerName,
+                customer_phone: customerPhone,
+                device_type: deviceType,
+                device_id: deviceId,
+                date: date,
+                start_hour: selectedTimeSlot,
+                duration: 1,
+                notes: document.getElementById('reservationNotes').value,
+                status: 'confirmed', // Auto-confirm paid reservations
+                created_at: new Date().toISOString(),
+                reservation_code: generateReservationCode(),
+                payment_status: 'paid'
+            };
+            
+            // Calculate total price
+            reservationData.total_price = devicePrices[deviceType] * 1;
+            
+            // Store reservation data temporarily
+            sessionStorage.setItem('pendingReservation', JSON.stringify(reservationData));
+            
+            // Create payment URL with return URL
+            const returnUrl = encodeURIComponent(window.location.href + '?payment=success');
+            const paymentUrl = `${gateway}?amount=${reservationData.total_price}&reference=${reservationData.reservation_code}&customer=${encodeURIComponent(customerName)}&phone=${encodeURIComponent(customerPhone)}&return_url=${returnUrl}`;
+            
+            // Redirect to payment gateway in same tab
+            window.location.href = paymentUrl;
+        }
+        
+        async function handlePaymentSuccess() {
+            const pendingReservation = sessionStorage.getItem('pendingReservation');
+            if (!pendingReservation) return;
+            
+            const reservationData = JSON.parse(pendingReservation);
+            
+            // Save to Data SDK
+            if (window.dataSdk) {
+                const result = await window.dataSdk.create(reservationData);
+                if (result.isOk) {
+                    // Clear pending reservation
+                    sessionStorage.removeItem('pendingReservation');
+                    
+                    // Show success notification
+                    showNotification('رزرو شما با موفقیت انجام شد! 🎉', 'success');
+                    
+                    // Show success modal with reservation details
+                    document.getElementById('reservationCode').textContent = reservationData.reservation_code;
+                    showReservationSuccessModal();
+                    
+                    // Navigate to reservation section
+                    showSection('reservation');
+                    
+                    // Reset form
+                    const form = document.querySelector('#reservationSection form');
+                    if (form) {
+                        form.reset();
+                        selectedTimeSlot = null;
+                        document.getElementById('timeSlots').innerHTML = '<p class="text-gray-400 col-span-full text-center">ابتدا تاریخ و مدت زمان را انتخاب کنید</p>';
+                        document.getElementById('deviceId').innerHTML = '<option value="">ابتدا نوع دستگاه را انتخاب کنید</option>';
+                        
+                        // Set today's Persian date
+                        const today = new Date();
+                        const persianDate = convertToPersianDate(today);
+                        document.getElementById('reservationDate').value = persianDate;
+                    }
+                    
+                    // Show important info again
+                    setTimeout(() => {
+                        showNotification('اطلاعات مهم: جهت لغو رزرو و بازگشت پول با شماره ' + document.getElementById('cancelPhoneNumber').textContent + ' تماس بگیرید', 'info');
+                    }, 3000);
+                    
+                } else {
+                    showNotification('خطا در ثبت رزرو پس از پرداخت', 'error');
+                }
+            }
+        }
+        
+        // Check for payment success on page load
+        function checkPaymentReturn() {
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.get('payment') === 'success') {
+                // Handle successful payment return
+                handlePaymentSuccess();
+                
+                // Clean URL
+                const newUrl = window.location.href.split('?')[0];
+                window.history.replaceState({}, document.title, newUrl);
+            }
+        }
+        
+        // Initialize the app when page loads
+        window.addEventListener('load', function() {
+            // Check for payment return first
+            checkPaymentReturn();
+            
+            // Set today as default date (Persian)
+            const today = new Date();
+            const persianDate = convertToPersianDate(today);
+            const dateInput = document.getElementById('reservationDate');
+            if (dateInput) {
+                dateInput.type = 'text';
+                dateInput.placeholder = 'مثال: 1403/09/15';
+                dateInput.value = persianDate;
+            }
+        });
+    </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'99f6afc594da1221',t:'MTc2MzI5Mjk0NC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
